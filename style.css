@@ -1,0 +1,28 @@
+img {
+	max-width: 600px;
+}
+
+.main {
+	max-width: 600px;
+	margin: 30px;
+	/*box-sizing: 750px;*/
+}
+.date {
+	text-transform: 
+}
+.floatImage{ 
+	width: 400px;
+	float: left;
+ }
+h1{
+	font-size: 60px;
+	margin: 0px auto;
+	width: 1000px;
+	text-align: center;
+	text-transform: uppercase;
+	/*small caps, lowercase*/
+}
+h2 {
+	font-size: 40px;
+	text-transform: uppercase;
+}
