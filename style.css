@@ -5,16 +5,26 @@ img {
 .main {
 	max-width: 600px;
 	margin: 30px;
+	/*line-height: 1.2;*/
 	/*box-sizing: 750px;*/
 }
+
 .date {
-	text-transform: 
+	/*text-transform: */
 }
+.twitterLink{
+	margin: 0px auto;
+	width: 1000px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
 .floatImage{ 
 	width: 400px;
 	float: left;
  }
 h1{
+	/*title*/
 	font-size: 60px;
 	margin: 0px auto;
 	width: 1000px;
