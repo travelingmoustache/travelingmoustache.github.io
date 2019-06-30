@@ -37,16 +37,18 @@ function preload() {
 }
 
 function setup() {
+  
   createCanvas(windowWidth, windowHeight);
   floor = windowHeight - 240;
   ceiling = windowHeight - 300;
-
+  
   screenW = windowWidth;
   screenH = windowHeight;
-
+  
 }
 
 function draw() {
+  
   if (gameMode == 1){
     background(0, 100, 50);
     textSize(windowWidth / 20);
@@ -211,6 +213,7 @@ function mousePressed() {
   if (gameMode == 1){
     if (mouseX > windowWidth / 2){
       players += 1;
+      fullscreen(1);
     }
     else{
       players -= 1;
