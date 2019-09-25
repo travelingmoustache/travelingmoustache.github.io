@@ -1,0 +1,151 @@
+
+body {
+  width: 75%;
+  min-width: 350px;
+  max-width: 1000px;
+  margin: auto auto;
+  font-family: 'Roboto Slab', serif;
+  line-height: 1.5;
+  
+}
+
+main {
+  border-right: 1px solid rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  /* column-count: 2;
+  column-gap: 20px; */
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(300px, 1fr)); 
+  /* column-rule: 2px solid rgba(0,0,0,0.5); */
+}
+
+article {
+  padding: 0px 5px;
+  max-width: 300px;
+  padding-bottom: 10px;  
+}
+#itemStats{
+}
+h1 {
+  text-align: center; 
+  font-size: 3em;
+  max-width: 100%;
+  word-spacing: 1em; 
+  background-color: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  margin-bottom: 0px;
+  padding: 3px;
+}
+h2 {
+  font-size: 20px;
+  /* margin-bottom: 0px; */
+  /* text-decoration-line: underline; */
+  margin: 8px auto;
+  display: flex; 
+  justify-content: center; 
+}
+
+
+#secondColumn{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(80px, 1fr)); 
+  /* grid-template-columns: repeat(2, 1fr); */
+  grid-column-gap: 10px;  
+  gap: 10px;
+}
+
+#traits {
+  padding: 10px;
+  
+}
+/* #firstParagraph{
+  column-count:1;
+  margin-left:100px;
+} */
+
+button {
+  max-width: 100px;
+  max-height:50px;
+  min-height: 50px;
+  min-width: 50px;
+  font-family: 'Roboto Slab', serif;
+  
+}
+
+.wideButton {
+  max-width: 100%; 
+  min-width: 100%;
+  padding: 0px; 
+  margin: 0px; 
+}
+
+.exitParagraph {
+  font-size: 0.6em;
+  /* display: flex;  */
+  /* justify-content: center; */
+  width: 50%;
+  margin: auto auto; 
+}
+
+@media (max-width: 890px){
+  main {
+    max-width: 100%;
+    padding: 0px;
+  }
+}
+
+/* @media (min-width 901px){
+  article {
+    padding: 0px 5px;
+  }
+} */
+#statNames {
+  text-align: right;
+  width: 60%; 
+  display: inline-block;
+}
+
+#statValues {
+  text-align: left;
+  width: 20%; 
+  display: inline-block;
+}
+
+/* For small screens */
+@media (max-width: 400px){
+  h1 {
+    font-size: 2em;
+    width: 100%;
+    padding-left: 0px; 
+    padding-right: 0px;
+    border-left: none; 
+    border-right: none; 
+  }
+  body {
+    font-size: .9em;
+    width: 100%;
+    /* width: 90%; */
+  }
+  button {
+    font-size: .75em;
+    min-height: 35px;
+  }
+  main {
+    border: 0px;
+    padding: 0px;
+  }
+  article {
+    max-width: 100%;
+    padding-left: 0px; 
+    padding-right: 0px;
+  }
+  .exitParagraph {
+    width: 100%; 
+    margin: 0; 
+  }
+  #statNames {
+    width: 50%;
+  }
+}

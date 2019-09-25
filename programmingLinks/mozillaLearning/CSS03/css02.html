@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS02/cssNotesStyle.css">
+</head>
+<body>
+    <h1>Styling Backgrounds in CSS</h1>
+    <h2>Background Colors</h2>
+    <dl>
+        <dt><code>background-color</code></dt>
+            <dd><code>background-color</code> determines the color of the background of any element. This has many available property values and a long shorthand.</dd>
+        <dt><code>background-image</code></dt>
+            <dd>Prints an image accross the background of an element. The image is not automatically sized to its container and will pattern by default. If both <code>background-color</code> and <code>background-image</code> are used, the image will appear ontop the background color.</dd>
+            
+            <dt><code>background-repeat</code></dt>
+                <dd>Determines how the image repeats. <code>no-repeat, repeat-x, repeat-y,</code> and <code>repeat</code> (default) are available as property values.</dd>
+            <dt><code>background-size</code></dt>
+                <dd>A property available for ensuring the background image fits the element it is contained in. It takes the property values <code>cover</code>, which covers the container with the image and may trim it, and <code>contain</code>, which covers the container with the image the best it can without trimming the image and while maintaining its aspect ratio. This property may also use length and percentage values.</dd>
+            <dt><code>background-position</code></dt>
+                <dd>Uses both, or a mix of, keywords (<code>top, right</code>) and length and percentage values to position the image on the background with respect to the top left corner of the container. The values are given in the x then y order. For example, the following code would position the top left corner of the image 20% accross and 50% down its container from the top left: <code>background-position: 20% 50%;</code>. <code>background-position</code> can also take four values at a time, where the first and third values are top, right, bottom, or left, and the second and fourth values are how far the background image is to be positioned away from those side of the container.</dd>
+            <dt>Gradient Backgrounds</dt>
+                <dd>Backgrounds that show a color gradient. This uses the <code>background-image</code> property. There is a little too much to get into with notes here, but there is a page for making background gradients <a href="https://cssgradient.io/" title="gradient creator website">here</a>, and Mozilla's examples can be viewed <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders#Gradient_backgrounds">here</a>.</dd>
+            <dt>Using More Than One Background</dt>
+                <dd><code>background-image</code> can accept more than one input with commas separating inputs. Each other background property (<code>background-repeat, background-size</code>, etcetera) can take multiple values as well. The values given to background properties affect the background in the order they were given. Meaning, the fourth <code>background-image</code> will be affected by the fourth <code>background-size</code> value given.</dd>
+            <dt><code>background-attachment</code></dt>
+                <dd>
+                    Determines how the background scrolls when the page is scrolled. Three values are available for this property: 
+                    <dl>
+                        <dd>
+                            <dt><code>scroll</code></dt>
+                                <dd>Scrolls with the page, but does not scroll if the element it is inside of is scrolled.</dd>
+                            <dt><code>fixed</code></dt>
+                                <dd>Does not scroll with the page or when the element is scrolled. It is always static.</dd>
+                            <dt><code>local</code></dt>
+                                <dd>Causes the background to be fixed to the element it is contained in; the background will scroll when the element is scrolled, and will scroll with the page as long as the element is on the page still.</dd>
+                        </dd>
+                    </dl>
+                    A helpful page exemplifying these three values can be found <a href="http://mdn.github.io/learning-area/css/styling-boxes/backgrounds/background-attachment.html" title="Mozilla page scrolling example">here</a>.</dd>
+            <dt>Background Shorthand</dt>
+                <dd>To list background values using shorthand, each background must be listed with each of their properties in order that they would appear. See <a href="url(big-star.png) center  no-repeat">this Mozilla page</a> for more information on background shorthand.</dd>
+            <dt>Borders</dt>
+                <dd>Borders have both long and shorthand properties. <code>border</code> can set the width, style, and color for the entire border. <code>border-(width/style/color)</code> can set any of those border property values individually, and <code>border-(top/right/bottom/left)</code> can set an individual border side. These can be combined into the longest way of declaration, <code>border-(top/right/bottom/left)-(width/style/color)</code>.</dd>
+            <dt><code>border-radius</code></dt>
+                <dd><code>border-radius</code> changes the way the border wraps around an element. Usually this is used for making rounded corners. <code>border-(top-right, bottom-left, etcetera)-radius</code> can be used for setting the values of specific corners. Either one or two property values can be given: the first value defines the horizontal radius and the second the verticle radius; one value defines both radiuses.</dd>
+
+    </dl>
+</body>
+</html>

@@ -1,0 +1,35 @@
+/* table styling */
+
+table {
+    border: 5px solid rgba(85, 26, 85,.8);
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+    color: white; 
+}
+
+caption {
+    caption-side: bottom;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 2em;
+    letter-spacing: 0.15em;
+    text-align: center; 
+}
+
+th {
+    background-color: rgba(85, 26, 85,.8);
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.2em;
+}
+
+th, td {
+    padding: 3px;
+    margin-bottom: 30px;
+}
+tbody tr:nth-child(odd) {
+    background-color: rgba(200,0,0,0.5);
+    
+}
+
+tbody tr:nth-child(even){
+    background-color: rgba(0,0,200,0.5); 
+}

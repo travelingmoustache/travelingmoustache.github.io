@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Styling Text</title>
+    <link rel="stylesheet" href="cssNotesStyle.css">
+</head>
+<body>
+    <h1>Styling Text</h1>
+    <p>Styling text falls into two categories: <em>font style</em> and <em>text layout style</em>. <em>Font style</em> changes properties of the font like which font is used, whether it is bold or italic, and more. <em>Text layout style</em> changes the spacing of the font and how it is aligned within the page.</p>
+    <h2>Font Style</h2>
+    <dl>
+        <dt><code>color</code></dt>
+            <dd>The <code>color</code> property determines the color of the font.</dd>
+        <dt><code>font-family</code></dt>
+            <dd>The <code>font-family</code> property changes which fonts are used for the text in the order they are given in the font stack. The browser will display the text in the first font in the font stack it has access to. If none of the fonts are available, the browser will use one of its default fonts. An example of the <code>font-family</code> property and a font stack: <code>font-family: "Trebuchet MS", Veranda, sans-serif;</code>.</dd>
+        <dt>Web Safe Fonts</dt>
+            <dd>Web safe fonts are the fonts that any machine should be able to display. They can be read about on Mozilla's Styling Text tutorial <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#Font_families" title="Mozilla Styling Text Tutorial">here</a>.</dd>
+        <dt>Default Fonts</dt>
+            <dd>Default fonts are the fonts any browser can reliably display. If all else fails, the browser will display whichever default font it is instructed to: serif, sans-serif, monospace, cursive, or fantasy. The default font that closely matches the intended font should always be given at the end of the font stack.</dd>
+        <dt><code>font-size</code></dt>
+            <dd><code>font-size</code> determines the size of the characters displayed on the page. This value is usually measured in px, em, or rem. The default size for all browsers is 16px. This value can be changed on a per-element basis. The em property value is determined by the defualt font-size of the element it is in: 1em=its elements default font-size. So, to get 24px sized font on a page with an unmodified default font-size, you would use 1.5em. This ensure the text will always be 1.5 times the size of the default font-size for that element, regardless of whether or not it changes later. rem is the same, except it uses the root default font-size set for that page, not for the element in which it is contained. So by setting the pages default font-size to something easy like 10px, the maths for sizing using rem becomes much easier.</dd>
+        <dt><code>font-style</code></dt>
+            <dd>Used for modifying italics. Property values include normal, italic, and oblique. Normal resets the text to normal (if it previously had style applied to it). Oblique slants the font in an attempt to immitate italic text.</dd>
+        <dt><code>font-weight</code></dt>
+            <dd>Sets the boldness of the text. Property values include normal, bold (the two most commonly used), lighter and bolder (which set the boldness one step either direction from its current boldness), and 100-900 (which give a finer-grained tuning ability to text boldness).</dd>
+        <dt><code>text-transform</code></dt>
+            <dd>Transform the text. Property values include none (remove or prevent transformations), uppercase and lowercase, capitalize (capitalizes all text), or full-width (gives each character a set width that can be aligned with multiple languages).</dd>
+        <dt><code>text-decoration</code></dt>
+            <dd>Sets lines through fonts. Available property values include none, underline, overline, and line-through. Text decoration can accept multiple values, like so: <code>text-decoration: underline overline line-through wavy black</code>.</dd>
+        <dt><code>text-shadow</code></dt>
+            <dd>This has a lot to it and I'm not interested in taking all those notes; I don't see myself using this much. Mozilla's tutorial on it can be found <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#Text_drop_shadows" title="Mozilla text shadow article">here</a>.</dd>
+    </dl>
+    <h2>Text Layout</h2>
+    <dl>
+        <dt><code>text-align</code></dt>
+            <dd>Used to determine the alignment of the text within its containing content box. Includes left, right, and center property values, as well as justify. Justify causes each line to be the same width, like most printed books are. This will create spaces in text to make sure their lines are the same width, sometimes causing lines with long words to look strange, and should therefore be used carefully. </dd>
+        <dt><code>line-height</code></dt>
+            <dd>Determines the height of each line. While it can accept traditional value measurements like px and em, because it is based on the size of the text, it is best to use a unitless value that is a multiplier of the text-size. Most pages used a line-height of 1.5-2, making the text much more readable.</dd>
+        <dt><code>line-spacing</code> and <code>word-spacing</code></dt>
+            <dd>Fairly self explanatory. Won't be used often, but might be utilized for a certain look.</dd>
+    </dl>
+    
+    <h2>Other Font Properties</h2>
+        <p>Available through Mozilla <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#Other_properties_worth_looking_at" title="Mozilla page for other text-layout properties">here</a> is a list of more properties used for styling text.</p>
+        <p><em>Font shorthand</em> is available as well. The order for property values is given as: <code>font-style, font-variant, font-weight, font-stretch, font-size, line-height, font-family</code>. The two property values required are font-size and font-family, and a forward slash is required between the font-size and line-height property values. Here is an example: <code>font: italic normal bold normal 3em/1.5 Helvetica, Arial, sans-serif;</code>.</p>
+    <h1>Styling Lists</h1>
+    <dl>
+        <dt>Vertical Rhythm</dt>
+            <dd>Vertical rhythm describes the way the page flows vertically, including the size of text and spacing of lines. Lists should keep the same line-spacing that the text on the page has. This can be set easily with something line <code>p, ol, ul, dl: line-height 1.5em;</code> which would cause each list type, and the children of those list types, to have line-spacing consistent with the paragraph element.</dd>
+        <dt>List-Specific Styles</dt>
+            <dd>
+                <dl>
+                    <dt><code>list-style-type:</code></dt>
+                        <dd>Sets the type of bullet used for the list item. For example: <code>list-style-type: upper-roman;</code>.</dd>
+                    <dt><code>list-style-position</code></dt>    
+                        <dd>Sets whether the bullets appear outside the list item or inside the list with the item; accepts <code>inside</code> or <code>outside</code> property values.</dd>
+                    <dt><code>list-style-image</code></dt>
+                        <dd>Allows the use of a custom image as a bullet. For example: <code>list-style-image: url(example.svg);</code>.</dd>
+                    <dt>List Style Shorthand</dt>
+                        <dd>The shorthand for list styles uses the properties above in any order. For example: <code>list-style: square url(star.svg) inside;</code></dd>
+                </dl>
+            </dd>
+        <dt>List Counting</dt>
+            <dd>
+                <dl>
+                    <dt><code>start</code></dt>
+                        <dd>The <code>start</code> attribute determines what number the list will start counting at. For example: <code>&lt;ul start="4"&gt;</code>.</dd>
+                    <dt><code>reverse</code></dt>
+                        <dd>The <code>reverse</code> attribute will cause the list to count in reverse. No values are needed for this attribute.</dd>
+                    <dt><code>value</code></dt>
+                        <dd>The <code>value</code> attribute allows you to set values for list items manually, such as: <code>&lt;li value="2"&gt;</code>. This would set that list item's value to 2.</dd>
+                </dl>
+
+            </dd>
+    </dl>       
+    <h1>Styling Links</h1> 
+    <h2>Link States</h2>
+    <dl>
+        <dt>Link (Unvisited)</dt>
+            <dd>Styling for a standard, unvisited, unfocused (etc.) link. Styled using the <code>:link</code> pseudo class.</dd>
+        <dt>Visited</dt>
+            <dd>Styling for a link that's been visited, whose URL exists in the browser's history. Styled using the pseudo class <code>:visited</code>.</dd>
+        <dt>Hover</dt>
+            <dd>Styling for a link that's being hovered over by the mouse. Styled using the pseudo class <code>:hover</code>.</dd>
+        <dt>Focus</dt>
+            <dd>Styling for a link that's being focused by the keyboard or programmatically. Styled using the pseudo class <code>:focus</code>.</dd>
+        <dt>Active</dt>
+            <dd>Styling for a link that's being actively engaged with. Styled using the pseudo class <code>:active</code>.</dd>
+    </dl>
+    <p>The following is a list of the common ways to style links. The order presented is important, as each selector affects the selector below it.</p>
+    <pre><code>
+            a {
+
+            }
+            
+            
+            a:link {
+            
+            }
+            
+            a:visited {
+            
+            }
+            
+            a:focus {
+            
+            }
+            
+            a:hover {
+            
+            }
+            
+            a:active {
+            
+            }
+    </code></pre>
+
+    <h2>Icons on Links</h2>
+    <p>Icons can be included with links, just as they are with bulleted lists or anything else. We can find where to place icons for links by using <code>a[href*="http"]{ }</code>, which will select any <code>&lt;a&gt;</code> element with an <code>href</code> attribute whose value starts with <code>http</code>. Then, using the <code,>background, background-size</code>, and <code>padding-right</code> properties, we can select the image URL, set its width and height in pixels, and add padding to keep it aligined with the text it is next to. See Mozilla's example <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Styling_links#Including_icons_on_links" title="Mozilla link icon example">here</a>.</p>
+    
+    <h1>Web Fonts</h1>
+    <p>Web fonts use fonts available on the web instead of those only available on one's local machine. Web fonts are specified using the <code>@font-face { }</code> block at the start of a style sheet.  </p>
+    <h2>Using Web Fonts</h2>
+        <ul>
+            <li>Download a font from a site like Font <a href="https://www.fontsquirrel.com/" title="font squirrel font site">Font Squirrel</a>. Make sure the license allows commercial use.</li>
+            <li>Go to Font Squirrel's <a href="https://www.fontsquirrel.com/tools/webfont-generator">web font generator</a>, upload the font to be used, and download the package created by this site. This will provide various versions of the font to be used across web browsers, format the CSS, and provide an example HTML page to see what the font might look like.</li>
+            <li>Open the provided CSS file (stylesheet.css), and copy the code given into the very top of the stylesheet for your site. Now these fonts may be accessed by your site.</li>
+            <ul><li>Note: make sure the URLs that point to the font files in the stylesheet are pointing to the right location.</li></ul>
+            <li>Access fonts the same way as any other font: <code>font-family: 'acknowledgementmedium', serif;</code>.</li>
+        </ul>
+    <h2>Using Google Fonts</h2>
+        <ul>
+            <li>Go to the <a href="https://www.google.com/fonts">Google Fonts</a> site.</li>
+            <li>Add fonts to your package by clicking the red plus sign on the font. These fonts will be collected at the bottom of the page under <em>family selected</em>.</li>
+            <li>Copy the HTML given at the top of the <em>family selected</em> box and paste it into your HTML document, above where the stylesheet is linked. </li>
+            <li>Apply the custom fonts as you would any other, by copying the text given under <em>specify in CSS</em>.</li>
+        </ul>
+        
+
+</body>
+</html>
+

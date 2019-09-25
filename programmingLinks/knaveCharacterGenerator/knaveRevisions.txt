@@ -1,0 +1,8 @@
+
+
+--Completed--
+make header spread the width of the application 
+Finish adding values to tables. 
+Make two columns below header: 
+    One starts with ability scores, the other starts with traits 
+Make the column layout 1 column if below the minimum width. Or, make the whole page use flexbox. 

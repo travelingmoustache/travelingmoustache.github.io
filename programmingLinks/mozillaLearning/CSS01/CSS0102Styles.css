@@ -1,0 +1,61 @@
+h1 {
+    color: red;
+}
+
+p, li {
+    color: green;
+}
+li {
+    /* list-style-type: none; */
+    list-style-type: lower-roman
+}
+
+/* select classes by starting the selector with a period (.) followed by the class name:  */
+
+.special {
+    color: orange; 
+    font-weight: bold;
+}
+
+/* Select an element with a specific class by naming the element, followed by a period and the class name (no spaces). 
+This causes the class to only effect that element, unless others are listed with it (so other elements with the same class
+would be uneffected). */
+
+li.special {
+    color: blue; 
+    font-size: 20px;
+}
+
+/* Descendent Combinator: Listing multiple elements as selectors, seperated by spaces. This causes eaceh element inside 
+the previous element to have the listed characteristics. Below, each <em> element inside <li> would have these characteristics:*/
+
+li em {
+    color: rebeccapurple;
+}
+
+/* Adjacent Sibling Combinator: For styling an element that directly follows another element. Below, each <p> element that directly follows and <h1> element. */
+
+h1 + p {
+    font-size: 200%;
+}
+
+pre {
+    color:black;
+    font-weight: 50;
+    background-color: aqua;
+    width: 20%;
+    border: 2px solid black;
+}
+.definitionList em, dt, dt+code{
+    color: purple;
+}
+
+body {
+    background-color: teal;
+    background: red url(../HTML2/Assets/drawing.svg) 0px 0px repeat scroll;
+}
+@media (min-width: 30em){
+    body{
+    background-color: white;
+    }
+}

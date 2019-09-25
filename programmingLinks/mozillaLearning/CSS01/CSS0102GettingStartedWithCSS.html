@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Getting started with CSS</title>
+    <link rel="stylesheet" href="CSS0102Styles.css">
+</head>
+
+<body>
+    
+    <h1>I am a level one heading</h1>
+
+    <p>This is a paragraph of text. In the text is a <span class="special">span element</span> 
+and also a <a href="http://example.com">link</a>.</p>
+
+    <p>This is the second paragraph. It contains an <em>emphasized</em> element.</p>
+
+    <ul>
+        <li>Item one</li>
+        <li class="special">Item two</li>
+        <li>Item <em>three</em></li>
+    </ul>
+    <h2>Selectors reference: </h2>
+    <p>
+        Consider that there are &lt;h1&gt;, &lt;p&gt;, and &lt;body&gt; elements, as well as a <em>special</em> class in our document. If we use the following selector in our CSS: 
+        <br>
+        <code>&lt;body&gt; &lt;h1&gt; + &lt;p&gt; .special {...}</code>
+        <br>
+        This would select each element with the <em>special</em> class that is inside a &lt;p&gt; element that is immediately preceded by an &lt;h1&gt; element that is inside a &lt;body&gt; element. 
+    </p>
+    <h2>CSS Definitions</h2>
+    <pre><code>
+        li.special {
+            color: blue; 
+            font-size: 20px;
+        }
+    </code></pre>
+        <dl class="definitionList">
+            <dt>Selector</dt>
+                <dd>Shown here as <code>li.special</code>. This select all <code>&lt;li&gt;</code> elements with the <code>special</code> class.</dd>
+            <dt>Property</dt>
+                <dd>Shown here as <code>color</code> and <code>font-size</code>. These properties will be modified by the Propery Value.</dd>
+            <dt>Property Value</dt>
+                <>Show here as <code>blue</code> for <code>color</code> and <code>20px</code> for <code>font-size</code>. These are what those properties will be changed to.</dd>
+            <dt>CSS Declaration</dt>
+                <dd>A property paired with a property value make a <em>CSS Declaration</em></dd>
+            <dt>CSS Declaration Blocks</dt>
+                <dd>All the <em>CSS Declarations</em> make up the <em>CSS Declaration Block</em>.</dd>
+            <dt>CSS Ruleset</dt>
+                <dd><em>CSS Declaration Blocks</em> combined with <em>selectors</em> make <em>CSS Rulesets</em>.</dd>
+        </dl>
+
+
+</body>
+
+</html>

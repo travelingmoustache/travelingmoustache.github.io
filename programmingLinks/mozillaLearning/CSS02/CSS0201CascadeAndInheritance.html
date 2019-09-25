@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Notes</title>
+    <link rel="stylesheet" href="cssNotesStyle.css">
+</head>
+<body>
+    <h1>CSS Notes</h1>
+    <h2>Inheritance</h2>
+    <p>Certain CSS properties are inherited by the children of element's to which they are applied. Which properties are inherited comes down to common sense, but each property can be referenced at Mozilla's CSS documents <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Keyword_index">here</a>.</p>
+    <p>Inheritance can be modified using the following three CSS properties:</p>
+    <ul>
+        <li><code>inherit</code>: Causes the property to be the same as that of its parent element.</li>
+        <li><code>initial</code>: Causes the property to be the same as that of the default style sheet for the browser it is viewed through.</li>
+        <li><code>unset</code>: Resets the properties value back to its natural value. Meaning, it will inherit or not inherit if that is what it does by default.</li>
+        <ul>
+            <li>An example of each of these might be:</li>
+            <ul>
+                <li><code>color:inherit;</code></li>
+                <li><code>color:initial;</code></li>
+                <li><code>color:unset;</code></li>
+            </ul>
+        </ul>
+    </ul>
+    <h2>The Cascade</h2>
+    <p>From most to least important, the cascade of specificity is as follows:</p>
+    <dl>
+        <dt>Importance</dt>
+        <dd>Using <code>!important</code> after a property value will override all other instances of that property except for other uses of <code>!important</code> applied to the same property further down the style sheet. <code>!important</code> looks like this: <code>h1 {background-color: black !important}</code>.</dd>
+        <dt>Specificity</dt>
+        <dd>The way an element is selected determines its specificty. Specificity has four levels, each level adding 10 times more than the last to the specificity of that selector. If two selectors are targeting the same element, the selector with the higher specificity will win. The levels of specificity are:
+            <ul>
+                <li><strong>Thousands:</strong> Declorations made inside a <code>style</code> attribute (IE inside an element in your HTML). These are called inline styles.</li>
+                <li><strong>Hundreds:</strong> Selectors made using IDs. </li>
+                <li><strong>Tens:</strong> Selectors made using classes, attribute selectors, or psuedo-class. </li>
+                <li><strong>Ones:</strong> Selectors made using elements or psuedo-elements.</li>          
+            </ul>
+            For each requirement that a selector satisfies, it will add one of that value to its specificity. For example, a selector that specifies two IDs and one element would have a specificity value of 201. A selector that specifies one ID, one class, and three elements would have a specificity value of 113. 
+        </dd>
+
+        <dt>Source Order</dt>
+            <dd>When more than one rule applies to an element, the rule that appears <em>last</em> in your style sheet applies to that element.</dd>
+    </dl>
+    <h2>Types of Selectors</h2>
+    <p>Below is listed each type of selector an their explanation. A great reference for these can be found in the table on this <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors#Reference_table_of_selectors">Mozilla Page</a>.</p>
+    <dl>
+        <dt>Type, Class, and ID Selectors</dt>
+            <dd>Selectors that target elements, such as <code>h1 { }</code>, classes, such as <code>.thisClass { }</code>, or IDs, such as <code>#thisID { }</code>.
+            <br>
+            Class selectors can be combined with element selectors by following the element selector with the class selector with no white space, like this: <code>h1.classExample { }</code>. Classes can be combined the same way: <code>.classExample.anotherClassExample { }</code>.
+            <br>
+            ID selectors can be used much in the same way as class selectors. Mozilla claims they can only be used once per document, but I experimented with using them multiple times in both the HTML and CSS of their live example and it worked the exact same way as a class, so I'm not sure this claim holds up. 
+            </dd>
+        <dt>Attribute Selectors</dt>
+            <dd>Selectors that modify elements with specific attributes, such as <code>a[title] { }</code>, or even elements with attributes with specific values, such as <code>a[href="www.example.com"] { }</code>.</dd>
+        <dt>Psuedo-Class and Psuedo-Elements</dt>
+            <dd>Selectors that style certain states of elements, such as <code>a:hover { }</code>. Also includes selectors that style certain parts of elements, such as <code>p::first-line { }</code>.</dd>
+        <dt>Combinators</dt><dd><dl>
+                <dt>Descendant Selectors</dt>
+                <dd>Combinations of selectors, such as <code>article p { }</code>, which targets each paragraph that is inside of an <code>&lt;article&gt;</code> element.</dd>
+            <dt>Child Combinator</dt>
+                <dd>Combinator selectors that match only when the selector selects elements that are direct children. For example: <code>article > p { }</code>. Each <code>&lt;p&gt;</code> element inside an <code>&lt;article&gt;</code> element would match, but only if the <code>&lt;article&gt;</code> element was directly preceding that <code>&lt;p&gt;</code> element in the code (meaning, the <code>&lt;p&gt;</code> element is not nested inside another element inside the <code>&lt;article&gt;</code> element). </dd>
+            <dt>Adjacent Sibling</dt>
+                <dd>Selector that matches when the selector selects elements adjacent to the first element. <code>h1 + p { }</code> would select each <code>&lt;p&gt;</code> element directly proceeding an <code>&lt;h1&gt;</code> element.</dd>
+            <dt>General Sibling</dt>
+                <dd>Acts like the adjacent sibling selector, but matches <em>any</em> element that proceeds the first given element, not just those adjacent. Example: <code>h1 ~ p { }</code> would match all <code>&lt;p&gt;</code> elements inside <code>&lt;h1&gt;</code> elements.</dd>
+            <dt>Using Combinators</dt>
+                <dd>Combinators can be, of course, combined with other selectors to give very specific selections. For example, <code>h1 &gt; p.specificClass { }</code> would select each <code>&lt;p&gt;</code> element directly inside the <code>&lt;h1&gt;</code> element, but only if that <code>&lt;p&gt;</code> element contained the <code>specificClass</code> class.</dd>
+            </dd>    
+        </dl>
+            <dt>Universal Selector</dt>
+            <dd>This selector selects every element in the document. If it is being chained together in a decending combinator, it will only select every element in the parent element that it is being combined with. It is denoted with an asterik, like this: <code>* { }</code>. An example of the universal selector being used as a descendant selector: <code>article *:first-child { }</code>. In this example, all first-child's of all <code>&lt;article&gt;</code> elements will be styled. IMPORTANT: This should not be confused with <code>article:first-child { }</code>, which would select each <code>&lt;article&gt;</code> that is the first child of another element.</dd>
+        <dt>Prescence and Value Selectors</dt>
+            <dd>
+                Selectors used for finding elements that contain a variety of values. 
+                <dl>
+                    <dt>Specific Attribue</dt>
+                    <dd>Matches an element with a specific attribute, like so: <code>h1[attributeName]</code>.</dd>
+                    <dt>Attribute with Specific Value</dt>
+                    <dd>Matches element with an attribute with a specific value, like so: <code>h1[title="thisTitle"]</code>.</dd>
+                    <dt>Attribute Contains Value</dt>
+                    <dd>Matches an element with an attribute that contains a value, but may contain other values as well. For example: <code>p[class~="special"]</code>. While any <code>&lt;p&gt;</code> element may have more classes than just "special", all <code>&lt;p&gt;</code> elements with the class "special" would be selected.</dd>
+                    <dt>Attribute Contains or Starts with Value</dt>
+                    <dd>Matches an element with an attribute that contains the specified value or contains a value that begins with the specified value and is immediately followed by a hyphen, such as: <code>div[lang|="zh"]</code>. </dd>
+                </dl>
+            </dd>
+            <dt>Substring Matching Selectors</dt>
+            <dd>Selectors used for finding values in attributes of elements.</dd>
+                <dd>
+                    <ul>
+                        <li>Any elements with the given attribute that has the given value at the <em>beginning</em> of the value. Example: <code>li[class^="box"]</code>.</li>
+                        <li>Any elements with the given attribute that has the given value at the <em>end</em> of the value. Example: <code>li[class$="box"]</code>.</li>
+                        <li>Any elements with the given attribute that has the given value listed in at least one place in the value string. Example: <code>li[class*="box]</code>.</li>
+                    </ul>
+                </dd>
+            <dt>Case Sensitivity</dt>
+            <dd>Attribute values are case sensitive by default. They can be made case insensitive by including an <code>i</code> before the closing bracket, like so: <code>li[class^="fish" i]</code>.</dd>
+            <dt>Pseudo Classes and Pseudo Elements</dt>
+            <ul>
+                <li>Pseudo class selectors target elements that are in a specific state. They are keywords and begin with a colon. For example, if the first element of our <code>&lt;artice&gt;</code> is a <code>&lt;p&gt;</code> element, we can target that using: <code>article p:first-child { }</code>.
+                    <ul><li>We can also target all <code>&lt;p&gt;</code> elements that are the first child of any other element by removing the <code>&lt;article&gt;</code> tag.</li></ul>
+                </li>
+                <li>Pseudo classes can be based on user action, sometimes called Dynamic Pseudo Classes. Examples include <code>:hover</code> and <code>focus</code>.</li>
+                <li>Pseudo elements act similarly to pseudo classes, but act as if an element were added instead of a class. They begin with two colons. For example: <code>p::first-line{ font-weight: bold;}</code> would cause the first line of text in all <code>&lt;p&gt;</code> elements to be bold.</li>
+                <li>Pseudo classes and pseudo elements can be used together. If we wanted the first line of the first <code>&lt;p&gt;</code> element in any <code>&lt;article&gt;</code> element to be bold, we would use: <code>article p:first-child::first-line {font-weight: bold;}</code>.</li>
+            </ul>
+                <dt>Generating Content with <code>::before</code> and <code>::after</code>, Known as <em>Generated Content</em></dt>
+                    <dd>Text can be added to a document using CSS by using <code>::before</code> or <code>::after</code> and the <code>content</code> property, like so: <code>.className::before {content: "this text will show before whatever element this property is assigned to"}</code>. This isn't very useful for text, especially because most screen readers would ignore the added text. We can, however, use this to add symbols to our page that we wouldn't want the screen readers to read to the user, such as <code>➥</code>.</dd>
+                    <dd>We can use <code>::before</code> and <code>::after</code> to add an empty string and then modify that element like we would any other, adding color, width, height, etcetera. This is known as <em>Generated Content</em>.</dd>
+                    <dd>A large reference for pseudo classes and pseudo elements is provided by Mozilla <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements#Reference_section">here</a>.</dd>
+        </dl>
+        <h2>The Box Model</h2>
+        <h3>Block and Inline Boxes</h3>
+        <dl>
+            <dt>Block Boxes</dt>
+                <dd>Boxes defined as blocks, with the following properties:
+                    <ul>
+                        <li>The box will extend in the inline direction and usually fill 100% of the page width.</li>
+                        <li>The box will break onto a new line.</li>
+                        <li>The <code>width</code> and <code>height</code> properties are respected.</li>
+                        <li>Other elements will be pushed away from the box by the box's padding, margin, and border properties.</code></li>
+                    </ul>
+                </dd>
+            <dt>Inline Boxes</dt>
+                <dd>Boxes defined as inline, with the following properties:
+                    <ul>
+                        <li>The box will not break a new line.</li>
+                        <li>The <code>width</code> and <code>height</code> properties will not be respected.</li>
+                        <li>Padding, margin, and border properites will not cause other inline boxes to move away from the box.</li>
+                    </ul>
+                </dd>
+            <dt>Box Type, Default and Declairing</dt>
+                <dd>Each element has a default <code>display</code> property type, either block or inline. This property can be set by changing the <code>display</code> property.</dd>
+            <dt>Inner and Outer Display Types</dt>
+                <dd>Boxes have both an <code>inner</code> and <code>outer</code> display type. Defined above are <code>outer</code> display type properites. <code>inner</code> display type properties will be defined later on.</dd>
+            <dt>Flex and Inline Flex</dt>
+                <dd><code>display: flex;</code> causes the elements inside the element with <code>display: flex;</code> to display as flex. <code>display: inline-flex;</code> causes the elements inside the element with <code>display: inline-flex;</code> to display as flex, and causes the element to display inline. For example, an <code>&lt;ul&gt</code> element would normally display block and the <code>&lt;li&gt;</code> elements inside it would display block as well. With the <code>display: inline-flex;</code> property, the <code>&lt;ul&gt;</code> element displays inline and each element inside of it displays flex.</dd>
+        <h3>Box Model Parts</h3>
+            <dl>
+                <dt>Content Box</dt>
+                    <dd>The area where content is displayed. Sized with the properties <code>width</code> and <code>height</code>.</dd>
+                <dt>Padding Box</dt>
+                    <dd>The first area around the content. Controlled using the shorthand <code>padding</code> property, or the sides of the padding can be controlled individually using <code>padding-(top, right, bottom, left)</code>. Padding cannot have negative values.</dd>
+                <dt>Border Box</dt>
+                    <dd>Second area around the content, surrounding the padding box. Controlled using the shorthand <code>border</code> property, which can change the border's size, style, and color. These can be set individually with <code>border-(top, right, bottom, left)-(color, style, width)</code>. 
+                    </dd>
+                <dt>Margin Box</dt>
+                    <dd>Third area outside the content, surroundning the border box. Contorlled using the <code>margin</code> property. Margins may have negative values, placing them closer to the box's content. When the margins of two boxes touch, they are not summed. Instead, the largest of the two is used for both boxes. For example, if one box with <code>margin-right: 50px;</code> and another box with <code>margin-left: 20px;</code> are touching, the margin for both boxes will become 50px, because that is the greater of the two values. This is called <em>margin collapsing</em>. See this <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" title="Mozilla: Margin Collapsing">Mozilla article</a> on margin collapsing for more information.</dd>
+                <p>More on the properties of the box model can be found <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#Parts_of_a_box">here</a>. The total area of an element using the box model is the sum of the width, padding, and border sizes, by the sum of the height, border, and padding sizes. While the margin does contribute to the space taken up on a page by the box, it does not contribute to the area of the box.</p>
+                <p>An alternative to the box model can be read about <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#The_alternative_CSS_box_model">here</a>. Mozilla says this method is more popular, but I'll be sticking to the standard method for learning purposes.</p>   
+            </dl>
+    </dl>
+
+    <h3>Display: Inline-Block</h3>
+    <p>This property value is similar to the inline and block property values by utilizing pieces of each. Elements with the <code>display: inline-block;</code> property will not break a new line, but will respect the width and height properties. They are also able to utilize the padding, border, and margin properties. An example of this being used would be to give a link a larger margin, making it easier to see. Setting the <code>a</code> element to <code>display: inline-block</code> would allow that element to utilize the margin property. 
+
+    </p>
+    <h3>Debugging CSS</h3>
+    <p>CSS can be debugged in many ways. Maybe the most helpful way is to use the developer tools available to each browser, documented by Mozilla <a href="https://developer.mozilla.org/en-US/docs/Tools">here</a> and <a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector#How_to">here</a>. W3C has a CSS validator in addition to their HTML validator, available <a href="https://jigsaw.w3.org/css-validator/">here</a>. Mozilla's article explaining other ways to debug CSS can be found <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS">here</a>.  
+
+    </p>
+
+    
+    
+</body>
+</html>

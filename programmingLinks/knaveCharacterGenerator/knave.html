@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<head>
+<script src="jquery.js"></script>
+<script src="classes.js"></script>
+<script src="knave.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed:400i|IBM+Plex+Sans:100,100i" rel="stylesheet">
+<link href="knave.css" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body>
+  <h1>Knave Character Generator</h1>
+  <main>
+
+    <article id="firstColumn">
+      
+    <h2>Ability Scores</h2>
+
+
+    <button class="wideButton" onclick="setAllAbilityScoresRandom()" type="button">Randomize All Ability Scores</button>
+
+    <div id="statNames">
+      <p>Strength:
+        <br>
+        Dexterity:
+        <br>
+        Constitution:
+        <br>
+        Intelligence:
+        <br>
+        Wisdom:
+        <br>
+        Charisma:
+        <br>
+      </p>
+    </div>
+    
+    <div id="statValues">
+      
+      <div id='strength'>Str:</div>
+      <div id='dexterity'>Dex:</div>
+      <div id='constitution'>Con:</div>
+      <div id='intelligence'>Int:</div>
+      <div id='wisdom'>Wis:</div>
+      <div id='charisma'>Cha:</div>
+
+    </div>
+    <br>
+      <div id='hp'>hp</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div id='strength'>Str:</div>
+    <div id='dexterity'>Dex:</div>
+    <div id='constitution'>Con:</div>
+    <div id='intelligence'>Int:</div>
+    <div id='wisdom'>Wis:</div>
+    <div id='charisma'>Cha:</div>
+    <br>
+    <div id='hp'>hp</div> -->
+
+    </article>
+
+    <!-- Item stats column (article) -->
+    <article id="itemStats">
+      <!-- <br> -->
+      <h2>Item Stats</h2>
+      <button class="wideButton" onclick="setItemStatsRandom()" type="button">Randomize All Item Stats</button>
+      <div id='itemSlots'>
+        Item Slots: 
+      </div>
+      <span id='bodyArmor'>
+        bodyArmor 
+      </span>
+      <span id='headArmor'>
+        headArmor 
+      </span>
+      <span id='shieldArmor'>
+        shieldArmor 
+      </span>
+      <span id='totalArmor'>
+        totalArmor 
+      </span>
+      <br>
+      <br>
+      <div id='otherGear'>
+        dungeoneeringGear1 
+      </div>
+      <div id='dungeoneeringGear2'>
+        <!-- dungeoneeringGear2  -->
+      </div>
+      <div id='generalGear1'>
+        <!-- generalGear1  -->
+      </div>
+      <div id='generalGear2'>
+        <!-- generalGear2  -->
+      </div>
+      <br>
+      <span id="itemSlotsRemaining"></span>
+    </article>
+      
+
+
+    <article id="traits">
+        <!-- third column -->
+    <h2>Traits</h2>
+    
+    
+      <!-- <div class ="col-sm-6"> -->
+        <span id="secondColumn">
+    
+  <button onclick="setAllTraitsRandom()" type="button">Randomize All Traits</button>
+  <button onclick="setArrayValue(0)" class="generateGender" type="button" id="gender">Gender</button>
+  <button onclick="setArrayValue(1)" class="generatePhysique" type="button" id='physique'>Physique</button>
+  <button onclick="setArrayValue(2)" class="generateFace" type="button" id='face'>Face</button>
+  <button onclick="setArrayValue(3)" class="generateSkin" type="button" id='skin'>Skin</button>
+  <button onclick="setArrayValue(4)" class="generateHair" type="button" id='hair'>Hair</button>
+  <button onclick="setArrayValue(5)" class="generateClothing" type="button" id='clothing'>Clothing</button>
+  <button onclick="setArrayValue(6)" class="generateVirtue" type="button" id='virtue'>Virtue</button>
+  <button onclick="setArrayValue(7)" class="generateVice" type="button" id='vice'>Vice</button>
+  <button onclick="setArrayValue(8)" class="generateSpeech" type="button" id='speech'>Speech</button>
+  <button onclick="setArrayValue(9)" class="generateBackground" type="button" id='background'>Background</button>
+  <button onclick="setArrayValue(10)" class="generateMisfortune" type="button" id='misfortune'>Misfortune</button>
+        </span>
+</article>
+</main>
+<p class="exitParagraph">
+  This character generator is for the tabletop role-playing game Knave. You can <a href="https://questingbeast.itch.io/knave" title="knave itch.io link">read about and buy it here</a>.
+  <br>
+  This page was made by Tyler Greason. Find his other stuff <a href="https://travelingmoustache.com">here</a>.
+</p>
+<!-- </div> -->
+
+
+
+<!-- <script>
+  $(document).ready(function(){
+    $('generateGender').click(function(){
+      generateAttribute(0);
+    });
+  });
+  
+</script> -->
+</body>
