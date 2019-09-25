@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Responsive Images</title>
+</head>
+<body>
+    <h1>Responsive Images</h1>
+    <p>We can use different image files and declare at what width they should be used to fix the issue of images showing funky on the page. The image below uses the <code>&lt;img&gt;</code> element and that element's <code>srcset</code> and <code>sizes</code> attributes. Although, this doesn't seem to want to use the "kero192w.png" image provided, only the full resolution "kero384w.png" image. </p>
+    <img 
+    srcset="Assets/kero192w.png 192w,
+            Assets/kero384w.png 400w"
+    sizes="(max-width:200px) 192px,
+            (min-width:201px) 384px,
+            800px"
+    src="Assets/kero.png" alt="Kero's sprite sheet">
+
+    <p>Alternatively, the below image uses the <code>&lt;picture&gt;</code> element. 
+    </p>
+    <picture>
+        <source media="(max-width:400px" srcset="Assets/kero192w.png">
+        <source media="(min-width:401px" srcset="Assets/kero.png">
+        <img src="Assets/kero.png" alt="Kero's sprite sheet">
+    </picture>
+    <p>This element also directs the browser to download and display the correct image before showing the page, possibly reducing bandwidth.</p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .example {
+            width: 85%;
+        }
+        body {
+            background-color:rgba(185, 255, 255, 0.1);
+            font-family: sans-serif;
+        }
+        .definition {
+            background-color: darkgrey; 
+            color: rgb(185, 255, 255); 
+        }
+        article {
+            align: center; 
+            width: 50%; 
+            text-align: left;
+            margin: auto auto; 
+        }
+        code {
+            font-size: 1.2em; 
+            font-weight: bold;
+            background-color: darkgrey; 
+            color: white; 
+        }
+        .simpleGridExample {
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgb(207,232,220);
+            border: 2px solid rgb(79,185,227);
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(200px, 1fr)); 
+            grid-gap: 20px;
+            grid-auto-rows: minmax(100px, auto);
+        }
+        .simpleGridExample div {
+            border: 1px solid black;
+        }
+        pre code {
+            background-color: rgba(0,0,0,0);
+            color: black;
+        }
+        
+/* line based grid styles  */
+        .lineBasedGridExample{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-gap: 20px;
+            border: 1px solid black;
+            padding: 5px; 
+        }
+        .lineBasedGridExample header, footer {
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgb(207,232,220);
+            border: 2px solid rgb(79,185,227);
+        }
+        .lineBasedGridExample header{
+            grid-column: 1/3;
+            grid-row: 1;
+        }
+        .lineBasedGridExample article {
+            grid-column: 2; 
+            grid-row: 2; 
+        }
+        .lineBasedGridExample aside {
+            border-right: 1px solid #999;
+            grid-column: 1;
+            grid-row: 2;
+        }
+        .lineBasedGridExample footer {
+            grid-column: 1/3;
+            grid-row: 3; 
+        }
+/* twelve line grid styles */
+        .twelveLineGrid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0,1fr));
+            grid-gap: 20px;
+            border: 1px solid black;
+            padding: 5px; 
+        }
+        .twelveLineGrid header, footer {
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgb(207,232,220);
+            border: 2px solid rgb(79,185,227);
+        }
+        .twelveLineGrid aside {
+            border-right: 1px solid #999;
+        }
+        .twelveLineGrid header{ 
+            grid-column: 1/13; 
+            grid-row: 1; 
+        }
+
+        .twelveLineGrid article{
+            grid-column: 4/13; 
+            grid-row: 2; 
+        }
+
+        .twelveLineGrid aside {
+            grid-column: 1/4;
+            grid-row: 2; 
+        }
+
+        .twelveLineGrid footer {
+            grid-column: 1/13; 
+            grid-row: 3; 
+        }
+
+/* Float example style */
+        .floatExample {
+            border: 1px solid black;
+            padding: 5px; 
+        }
+        .floatExample body {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            font: .9em/1.2 Arial, Helvetica, sans-serif
+            }
+
+        .floatExample .floatLeft {
+            float: left;
+            margin-right: 15px;
+            width: 150px;
+            height: 100px;
+            border-radius: 5px;
+            background-color: rgb(207,232,220);
+            padding: 1em;
+            }
+        .floatExample .floatRight {
+            float: right;
+            margin-left: 15px;
+            width: 150px;
+            height: 100px;
+            border-radius: 5px;
+            background-color: rgb(207,232,220);
+            padding: 1em;
+        }
+        .floatExample .firstParagraph {
+            background-color: blue; 
+            color: white; 
+        }
+
+        .floatExample .secondParagraph {
+            clear: left;
+        }
+        .floatExample .thirdParagraph {
+            /* clear: left;  */
+        }
+        .floatExample .wrapper {
+            background-color: rgb(79,185,227);
+            padding: 10px;
+            color: #fff;
+            overflow: auto; 
+            display: flow-root;
+        }
+        /* .wrapper::after {
+            content=" "; 
+            clear: both; 
+            display: block; 
+        } */
+/* Positioning Example style */
+        .positioningExample article {
+        width: 500px;
+        margin: 0 auto;
+      }
+        .positioningExample p {
+        background: aqua;
+        border: 3px solid blue;
+        padding: 10px;
+        margin: 10px;
+      }
+        .positioningExample span {
+        background: red;
+        border: 1px solid black;
+      }
+      .positioningExample .paragraph1 {
+          position: static;  
+      }
+
+      .positioningExample .paragraph2 {
+          position: relative;
+          top: 30px; 
+          right: 20px; 
+      }
+      .positioningExample .paragraph3 {
+          position: absolute; 
+          right: 10px;    
+          width: 100px;
+      }
+      .positioningExample .fixedHeading {
+          /* position: fixed; 
+          top: 0;
+          margin: auto 0;
+          width: 50%;  */
+      }
+/* Multi Column Layout Example styles */
+        .multiColumnLayoutExample article {
+            width: 90%;
+            max-width: 900px;
+            margin: 2em auto;
+            font: .9em/1.2 Arial, Helvetica, sans-serif;
+            column-count: 2;
+            /* column-width: 200px; */
+            column-gap: 10px;
+            column-rule: 2px solid rgba(0,0,0,0.5);
+            border: 1px solid black; 
+            padding: 10px; 
+        }
+
+
+    </style>
+</head>
+<body>
+    <article>
+        <h1>CSS Layout Notes</h1>
+    <ul>
+        <h2>Flexbox</h2>
+        <li><span class="definition">Flexbox:</span> a method of displaying elements on a webpage that allows for greater formatting options than those available to block and inline only. For example, flexbox allows three articles to be ordered one next to the other, with each taking up the most of their available space in instead of only the space their content takes up.</li>
+        <li>To make something use the flex display, set its parent element to <code>display: flex;</code>. This will cause each child of that element to display as flex elements. </li>
+        <li>Elements laid out as flexible boxes are laid along two axes: <span class="definition">main axis</span> and <span class="definition">cross axis</span>.</li>
+        <!-- <li>The <span class="definition">flex-</span></li> -->
+        <li><code>flex-wrap: wrap;</code> use inside flexbox container to allow flex items to wrap below each other.</li>
+        <li><code>flex-basis: xxpx;</code> use to set how wide a flex item will be before it is moved to a new line. Applied to flex items, not flex containers. </li>
+        <li><code>flex-grow: xx</code> Used as a unitless value to dicate what proportion of the line each flex item will use. If different items are given unique values, they will take up more/less of the line as appropriate. This can also have another unit given, as before: <code>flex: 1 200px;</code> Here, each flex item will have a maximum of 200px, then any remaining space will be divided between each flex item according to their proportions.</li>
+        <li>The <code>flex: </code>shorthand sets, in order: <code>flex-grow, flex-shrink, flex-basis</code>. </li>
+        <li><code>flex-flow: row wrap</code> shorthand for <code>flex-wrap</code> and <code>flex-direction: (row/column(default))</code>.</li>
+        <li><code>aling-items: (stretch/center/start/end/flex-start/flex-end/more-available);</code> controls where flex items align on the cross axis.Default value is stretch.</li>
+        <li><code>justify-content: (start/center/space-around/space-between/space-evenly)</code> determines where the flex items lay on the main axis. Default value is flex-start.</li>
+        <li><code>order: x</code> sets the position of a flex item. By default, all flex items have an order value of 0. Those with a higher value appear later. Negative values will cause the item to appear earlier. Flex items with the same order value will appear in their source order.</li>
+
+        <h2>Grids</h2>
+        <li><strong>Grids</strong> allow us to organize our page into columns, rows, and the spaces between (normally called gutters), and keep this layout consistent among pages with different content. We use <code>display: grid;</code> to set our layout to grid, just like setting our layout to flex. </li>
+        <li>Set the number of columns used <code>grid-template-columns: xxpx xxpx xxpx ...</code>, using px or a percentage, and declaring the width for as many columns as you need. Also available is the <code>fr</code> unit, which gives each column a portion of the width equal to the part of the whole the value it is given is. For example: <code>grid-template-columns: 1fr 1fr 2fr;</code> would give each of the first two columns one quarter of the total width (1/4) and the last column half the total width (2/4, 1/2). The number of columns can be repeated using <code>grid-template-columns: repeat(x, y);</code> where x is the number of times that y should be repeated. So <code>grid-template-columns: repeat(2, 1fr);</code> would repeat a listing twice with 1fr of the width of the row before moving to the next row. Similarly, <code>grid-template-columns: repeat(3, 200px)</code> would have three listings per row at 200px wide each, before moving to the next row. </li>
+        
+        <h2>Simple Grid Example</h2>
+        <div class="simpleGridExample example">
+                <div>This row's width is being expanded because of <code>grid-auto-rows: minmax(100px, auto);</code>. At minimum it will be 100px tall (see the rows below), and will grow to any maximum to fit new content because of <code>auto</code>.</div>
+                <div>Two</div>
+                <div>Three</div>
+                <div>Four</div>
+                <div>Five</div>
+                <div>Six</div>
+                <div>Seven</div>
+            </div>
+        <li><strong>Gaps</strong> for spaces between rows and columns we use <code>grid-column-gap, grid-row-gap, or grid-gap</code>. Gap values can be lengths or percentages, but not <code>fr</code>. While <code>grid-gap</code> is still supported, <code>gap</code> will be the new standard, and so both should be used to maintain the code for both old and new browsers.</li>
+        <li><strong>Implicit and Explicit Grids</strong> Implicit grids occur when we have not declared anything for one axis of <code>grid-template-(columns/rows)</code>. Explicit grids are for when we have declared a value for either axis of the same. Implicit grids automatically adjust their width or height to fit the content, but can be given values with <code>grid-auto-(rows/columns)</code>. This will ensure that the columns or rows given that value are always that value. </li>
+        <li><code>grid-auto-(rows/columns): minmax(x,y);</code> <strong>IMPORTANT! here, and below!</strong> This will allow the axis to which it is set to have a minimum size value of x and a maximum size value of y, based on the content inside the content box (see the first box in the example grid above). This would have solved the issue of content flowing out of the buttons on the Knave character generator.</li>
+        <li><code>grid-template-(columns/rows): repeat(auto-fill,minmax(x, 1fr)); </code> This sets the size of the axis to a minimum width of x, and will expand as needed to fill the available space. This is different from using only <code>minmax</code> because it will add rows/colums as needed to make space for the contant to fit, not just adjust the width/height of the box it is in.</li>
+
+        <h2>Grid Lines</h2>
+        <div class="lineBasedGridExample example">
+                <header>This is my lovely blog</header>
+                <article>
+                        <h1>My article</h1>
+                        <p>Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+        
+                        <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </article>
+                <aside><h2>Other things</h2>
+                    <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est.</p></aside>
+                <footer>Contact me@mysite.com</footer>
+            </div>
+            <br>
+            
+        <li><strong>Grid Lines</strong> Grids start with lines. In languages like English, lines are numbered from left to right starting with 1. In languages like Arabic, lines are ordered right to left starting with 1. We can place content on our grid using these properties: <code>grid-column-start, grid-column-end, grid-row-start, grid-row-end, grid-column, grid-row</code>, where <>grid-column and grid-row</code> are shorthand for <code>grid-(column/row)-start, grid-(column/row)-end</code>. <code>grid-(row/column)</code>'s values are expressed by separating them with a forward slash like so: <code>grid-column: 1/2;</code>. </li>
+
+        <h2>12 Line Grid</h2>
+        <div class="twelveLineGrid example">
+                <header>This is my lovely blog</header>
+                <article>
+                        <h1>My article</h1>
+                        <p>Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+        
+                        <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </article>
+                <aside><h2>Other things</h2>
+                    <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est.</p></aside>
+                <footer>Contact me@mysite.com</footer>
+            </div>
+        <li>Grids in most CSS frameworks are based on 12 or 16 column/row layouts. Organizing our code this way (see the CSS in the style tag above) may make manipulating our content easier.</li>
+
+        <h2>Float</h2>
+        <li>Float example: 
+            <br> 
+            <!-- Example float HTML  -->
+            <div class="floatExample example"> 
+                <body>
+                    <h1>Simple float example</h1>
+                    <div class="floatLeft">Float Left</div>
+                    <div class="floatRight">Float right</div>
+                    <p class="firstParagraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. </p>
+                    <p class="secondParagraph">Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+                    <div class="wrapper">
+                        <div class="floatLeft">Float left <em>Big Float, Little Paragraph</em> element.</div>
+                
+                        <p class="thirdParagraph">Nam vulputate diam nec .</p>
+                    </div>
+                </body>
+            </div>
+        </li>
+        <!-- End float example -->
+        <li>The "Float Left" div above is surrounded by the paragraph's texts because it has the <code>float: left;</code> property. Similarly, the div opposite has the <code>float: right;</code> property. This will cause each of these elements to be placed at the top of their container, and any other elements below them will flow around them, up to but not exceeding the top of the container.</li>
+        <li>We use <code>margin-(left/right): xxpx;</code> to give the floating element a bit of space to keep it looking good. </li>
+        <li>The first paragraph, the one with a background color, shows how the paragraph element is actually <em>behind</em> the floating element. This exemplifies how we cannot add a margin to the text to push it away from the float, although we <em>can</em> add a margin to the float to push it away from the text.</li>
+        <li>To cause elements to flow normally past floats, we can use the <code>clear: (left/right/both);</code> property. The second paragarph in the example above contains this property (with the left property value), causing it to appear after the vertical space taken up by the two floats. Mozilla says that clearing to the left will cause the element to clear items floated to the left, similarly to the right, and that <code>both</code> is available to clear elements floating to both sides. But, the second paragraph has the <code>clear: left;</code> property and is clearing both elements above it, which each have a <code>float: left;</code> or <code>float: rigth;</code> property, so I'm not sure why it is clearing them both.</li>
+        <li><strong>Big Float, Little Paragraph:</strong> Sometimes trying to clear an element will look wonky. For instance, when the element to be cleared is larger than the element clearing it. Wrapping both elements in a div and applying the <code>overflow: auto;</code> property to that div will cause the float to be cleared properly, as is the case with the third paragraph. <code>display: flow-root;</code> will give the same result and can be cleaner (overflow can cause issues) but isn't always supported in older browsers.</li>
+        <h2>Positioning</h2>
+            <li>
+                <h3>Positioning Example</h3>
+                <div class="positioningExample example">
+
+                    <article>
+                        <h1 class="fixedHeading">Basic document flow</h1>
+                        
+                        <p class="paragraph1">I am a basic block level element with the property <code>position: static;</code>.</p>
+                        
+                        <p class="paragraph2">This paragraph has the <code>position: relative; top: 30px; right: 20px;</code> properties.</p>
+                        
+                        <p class="paragraph3">This paragraph has the <code>position: absolute; width: 100px; right: 10px;</code> properties. Therefore it is not in normal flow and rests 10px to the right of its container element (and is 100px wide to show this better).</p>
+                        
+                        <p class="paragraph4">inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and adjacent text nodes, if there is space on the same line. Overflowing inline elements <span>wrap onto a new line if possible — like this one containing text</span>, or just go on to a new line if not, much like this image will do: <img src="long.jpg"></p>
+                        
+                    </article>
+                </div>
+                </li>
+        <li>The <code>position</code> property is what we use to set the position of elements in the page. It accepts <code>static/relative/absolute/sticky</code> property values. </li>
+        
+            <ul>
+                <li><code>static</code> is the default position of all elements.</li>
+                <li><code>relative</code> is almost the same as <code>static</code>, but it allows for further positioning that lets the element overlap other elements. Use the <code>top/bottom/left/right: xxpx;</code> properties to change a <code>relative</code> positioned element's position.</li>
+                <li><code>absolute</code> remove the element from normal flow entirely. The element sits ontop other elements on its own layer. <code>top/bottom/left/right: xxpx;</code> works differently with absolute positioning: it specifies how far the absolute positioned element should be from each of the containing element's sides.<li>
+                    <ul>
+                        <li>The container the absolute element is positioned by is usually the HTML document. However, by changing the <code>position</code> value of one of the elements the absolute element sits inside, we can cause the absolute element to be positioned based on the changed element's position. For example, in the example above, changing the position of the article the absolute paragraph is inside of to <code>position: relative;</code>, the absolute positioned paragraph with be positioned based on the article, not the HTML document.</li>
+                        <li><code>z-index: x;</code> The z-index is used to set the plane on which elements appear. Negative values are farther from the top (toward the back of the monitor), and positive values are farther above the top (the front of the monitor). Z-index can be used to better control how elements stack ontop each other when using positioning techniques like absolute. z-index values are normally set to <code>auto</code>. By default, elements farther down the page appear ontop of elements before them.</li>
+                    </ul>
+                <li><code>fixed</code> is used for fixing an element to a specific area of the page regardless of where in the page the viewport is. The element is positioned relative to the screen. At least one <code>top/bottom/left/right</code> value is required for this position type. <code>margin: auto 0;</code> can be used to center the element. Example code for this is in this page's CSS under .positionExample .fixedHeading, but the code is commented out for the sake of the rest of the page's clarity.</li>
+                <li>
+                    <code>sticky</code> is similar to fixed, but allows for the element to only stick to a part of the page under certain conditions. The most common use for this is would be creating an elemnt to be stuck to the page once it has been reached in the viewport, like the letter headings to an index (think <code>&lt;dt&gt;</code> elements staying at the top of the page until the next one is reached in a dictionary). The code for such an element might look like so: 
+                    <pre><code>dt {
+background-color: black;
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin: 1em 0;
+}</code></pre>
+
+                </li>
+            </ul>
+        <h2>Multi Column Layout</h2>
+        <div class="multiColumnLayoutExample example">
+            <article>
+
+                <h1>Simple multicol example</h1>
+                
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate.
+                    Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus
+                    laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra
+                    egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam
+                    erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare
+                    egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum
+                    sapien.</p>
+                    
+                    <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere
+                        sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus
+                        tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu
+                        urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque
+                        penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </article>
+        </div>
+        <li>Multi column layouts use the <code>column-count/column-width</code> properties. The <code>column-count</code> property accepts a unitless value and separates the content in the element into that many columns. For example    : <code>column-count: 3;</code> would separate the content into 3 columns.</li>
+        <li><code>column-width: xxpx;</code> fits as many columns of the provided width into the element as it can. For example, a 500px wide container with <code>column-width: 200px</code> would have 2 200px wide columns in it.</li>
+        <li>Columns may not be styled individually, but two properties exist to style the set: <code>column-gap: xxpx;</code> sets the distance between columns, and <code>column-rule: width style color;</code> sets a border-like rule between columns. Note: <code>column-rule</code> does not create space in the column gap, it simply lays ontop of it.</li>
+        <li><strong>Fragmentation in Columns</strong>: This seems like a niche issue. Basically, if you have content in columns, and the content becomes separated from itself due to the column ending (so the content flows to the next column), Mozilla thinks this might look bad. You can fix it using the <code>page-break: avoid</code> inside the element you do not want to break. Also include <code>page-break-inside: avoid;</code> for legacy support. Note: I'm not convinced this would look bad on a page with a multi column layout that does not scroll. If the page does scroll, the separation of content <em>might</em> be confusing for the reader, but.. I'm not convinced.</li>
+
+        <h2>Responsive Design</h2>
+        <li><strong>Responsive Design</strong> is a term used for the idea that websites should be built for a variety of devices, and respond to the device's size or screen resolution appropriately.</li>
+        <li><strong>Mobile First Design</strong> is the concept of designing a page in one column first, so that it may be used for mobile devices. After that design is finished, the site is designed for larger devices.</li>
+        <li><strong>Text Sized Based on the Viewport</strong> The size unit <code>vw</code> is based on the size of the viewport. While one should not use this unit alone (it disregards the user zooming the text and keeps it one size), it is suggested it be combined with other size units like <code>px</code> or <code>em</code>. Doing so allows the text to scale with the viewport while remaining zoomable. Example: <code>font-size: calc(1.5em+3vw);</code></li>
+        <li><strong>Viewport Meta Tag</strong> A very important tag in the <code>&lt;meta&gt;</code> element of an HTML document. It will look like this: <code>&lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;</code>. This allows the website to respond to the actual size of the device's viewport, not that set by the device. Read more about why this is on Mozilla <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design#The_viewport_meta_tag">here</a>.</li>
+        <h2>Media Queries</h2>
+        <li><strong>Media queries</strong> have three parts: </li>
+            <ul>
+                <li><strong>Media Type</strong> Tells the browser what media type the code is for (all, screen, print, speech).</li>
+                <li><strong>Media Expression</strong> Rule that determines if the CSS is applied.</li>
+                <li>CSS rules that are applied if the media expression test is passed.</li>
+            </ul>
+        <li>Here are some common media queries: </li>
+            <ul>    
+                <li><code>min/max-width/height</code> Usually we use width for this, not height. Helpful for changing the site's layout based on how large the user's screen is. For example, to use CSS specific to screens less wide than 360px: <code>@media screen (max-width: 360px){...}.</code></li>
+                <li><code>orientation</code> Used to figure out if the device is in landscape or portrait mode.</li>
+                <li><code>hover</code> Used to figure out if the device has the ability to hover. If it does not, it is probably a touch device. Example: <code>@media (hover: hover){...}</code>. </li>
+                <li><code>pointer</code> Inquires about the devices pointer input capability: <code>none, fine, course</code>. None means they cannot point (no mouse or touchscreen), fine means they can use a touchscreen, and course means they have a mouse or trackpad. This is a great way to design for mobile phones or tablets, as you are able to make selectable elements larger for the user, or have a different way to interact with the page entirely.</li>
+            </ul>
+        <li><strong>Advanced Media Queries</strong> We can use logic to combine media queries for more complicated queries. <code>and</code> checks if more than one media query is true. Or checks to see if one of many are true and uses a comma to separate queries. <code>not</code> check to see if the query is not true and applies to CSS if it is not. Here are some examples: 
+            <pre>
+                <code>
+@media screen and (min-width: 400px) and (min-height: 300px){...}
+
+@media screen and (min-width: 400px), (orientation: portrait){...}
+
+@media screen not all and (min-width: 400px) and (orientation: landscape){...}
+                </code>
+            </pre>
+        </li>
+    <!-- end notes list -->
+    </ul>
+    </article>
+</body>
+</html>
