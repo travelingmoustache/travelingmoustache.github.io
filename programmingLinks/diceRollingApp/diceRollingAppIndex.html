@@ -1,0 +1,390 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Dice Roller</title>
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
+        <style>
+
+
+
+        body {
+            margin: 0px; 
+            width: 500px;
+            background: lightgrey  ;
+        }
+
+        article {
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        #buttonsArticle {
+            text-align: right;
+            display: grid; 
+            grid-template-columns: 50px 50px 50px 50px 80px 80px 100px 70px 70px;
+            text-transform: uppercase;
+            max-width: 500px;
+        }
+        .title {
+            font-size: 0.9rem;
+            max-width: 160px;
+            text-align: center;
+            height: 50px;
+            border: 1px solid lightblue;
+            padding: 2px; 
+            grid-row: 1;    
+            background: black; 
+            color: lightblue;
+        }
+        #diceTitle{
+            grid-column: 1/3;
+            
+        }
+        #modifierTitle{
+            grid-column: 3/5;
+        }
+        #rollTitle{
+            grid-column: 5/7;
+            font-size:1.5rem;
+        }
+        #totalTitle{
+            grid-column: 7/8;
+        }
+        #criticalsTitle{
+            grid-column: 8/10;
+        }
+        button {
+            border: 1px solid black;
+            background: rgb(173, 216, 230);
+            text-transform: uppercase;
+            font-size: 1.6rem;
+            font-family: 'Libre Baskerville', serif;
+            height: 60px;
+        }
+
+        .qtyButton {
+            width: 50px;
+            font-size: 2rem;
+            
+        }
+
+        #rollAll { 
+            grid-column: 1/7;
+            font-weight: bold;
+        }
+
+        .rollButton{ 
+            width: 160px;
+        }
+        #allResults {
+            color: red;
+            grid-column: 7/10;
+            width: 100%;    
+        }
+
+        .total, .critResult {
+            font-weight: bold;
+            background: black; 
+            color: rgb(173, 216, 230);
+            word-spacing: 10px;
+            font-size: 2rem;
+            text-align: center;
+            border: 1px solid lightblue;
+            width: 100px;    
+        }
+
+        .results {
+            background: lightblue; 
+            color: red; 
+        }
+
+        .critResult, .total {
+            line-height: 1.7;
+        }
+        .critResult{
+            width: 70px;
+        }
+
+
+        .rollButton{
+            grid-column: 5/7;
+        }
+
+        @media (max-width: 601px){
+            body {
+                ;
+                width: 100%;
+                margin: 0px;
+            }
+
+            button {
+                /* give all buttons a height to fill their containers */
+                height: 100%;
+            }
+
+        
+            #buttonsArticle{
+                grid-template-columns: 30px 30px 60px 60px 60px 40px 40px;
+                grid-template-rows: repeat(17, 40px); 
+                width: 99%;
+                margin: auto;
+            }
+
+            .title{
+                grid-row: 1/3;
+                height: 100%;
+                font-size: 0.8rem;
+                line-height: 1.8;
+            }
+            
+
+            /* set title rows/columns */
+            #diceTitle{
+                grid-column: 1/2;
+            }
+            #modifierTitle{
+                grid-column: 2/3;
+            }
+            #rollTitle{
+                grid-column: 3/5;
+                font-size: 2rem;
+                line-height: 2.3;
+            }
+            #totalTitle{
+                grid-column: 5/6;
+            }
+            #criticalsTitle{
+                grid-column: 6/8;
+            }
+
+
+            /* set dice qty and mod buttons in one column, two rows per row */
+            /* set columns for both:  */
+            .qtyButton, .modButton {
+                width: 100%; 
+            }
+            .qtyButton{
+                grid-column: 1/2;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+            .modButton {
+                grid-column: 2/3;
+            }
+            /* set rows for -/+ buttons COME BACK AND FINISH THIS   */
+            #d2+, #d2Mod+ {
+                grid-row: 3/4;
+            }
+            #d2-, #d2Mod-{
+                grid-row: 4/5;
+            }
+            #d4+, #d4Mod+ {
+                grid-row: 5/6;  
+            }
+            #d4-, #d4Mod-{
+                grid-row: 6/7;
+            }
+            #d6+, #d6Mod+ {
+                grid-row: 7/8;
+            }
+            #d6-, #d6Mod-{
+                grid-row: 8/9;
+            }
+            #d8+, #d8Mod+ {
+                grid-row: 9/10;
+            }
+            #d8-, #d8Mod-{
+                grid-row: 10/11;
+            }
+            #d10+, #d10Mod+ {
+                grid-row: 11/12;
+            }
+            #d10-, #d10Mod-{
+                grid-row: 12/13;
+            }
+            #d12+, #d12Mod+ {
+                grid-row: 13/14;
+            }
+            #d12-, #d12Mod-{
+                grid-row: 14/15;
+            }
+            #d20+, #d20Mod+ {
+                grid-row: 15/16;
+            }
+            #d20-, #d20Mod-{
+                grid-row: 16/17;
+            }
+
+            /* Set roll button columns */
+            .rollButton{
+                grid-column: 3/5;
+                grid-row: span 2;
+                width: 100%; 
+                font-size: 1.3rem;
+            }
+
+            /* set roll result columns positions */
+
+            .total {
+                grid-column: 5/6;
+                grid-row: span 2;
+                width: 100%;
+            }
+ 
+            /* set both critical result column positions */
+            .critHitResult, .critMissResult, .total{
+                width: 100%; 
+                text-align: center; 
+                font-size: 1.8rem;
+                line-height: 2.5;
+            }
+            .critHitResult{
+                grid-column: 6/7;
+                grid-row: span 2;
+            }
+
+            .critMissResult {
+                grid-column: 7/8;
+                grid-row: span 2;
+            }
+
+            #allResults {
+                grid-row: 17;
+                grid-column: 6/8;
+                
+            }
+            #rollAll, #allResults {
+                grid-row: 17/18;
+                height: 80px;
+            }
+
+}
+
+</style>
+    </head>
+    <body>
+        <article id='buttonsArticle'>
+        
+            <div class="title" id='diceTitle'>
+                Q
+                <br> 
+                T
+                <br> 
+                Y
+            </div>
+            <div class="title" id='modifierTitle'>
+                M
+                <br> 
+                O
+                <br> 
+                D
+            </div>
+            <div class="title" id='rollTitle'>Roll</div>
+            <div class="title" id='totalTitle'>Total</div>
+            <div class="title" id='criticalsTitle'>
+                crit 
+                
+                <br>hit/miss</div>
+            
+
+
+            <button id='d2-' class='qtyButton diceButton d2UpperButton'>-</button>
+            <button id='d2+' type='button' class='qtyButton diceButton d2LowerButton'>+</button>
+            <!-- <span id='d2Quantity'>D2</span> -->
+            <!-- <span>D2</span> -->
+            <button id='d2Mod-' class='qtyButton modButton d2UpperButton'>-</button>
+            <button id='d2Mod+' class='qtyButton modButton d2LowerButton'>+</button>
+            <!-- <span id='d2Mod'>D2 Modifier</span> -->
+            <button id='d2Roll' type='button' class='rollButton'>Roll D2</button>
+            <span id='d2Total' class='total'> </span>
+            <span id='d2CritHit' class="critHitResult">0</span>
+            <span id='d2CritMiss' class="critMissResult">0</span>
+            
+            <button id='d4-' class='qtyButton diceButton d4UpperButton'>-</button>
+            <button id='d4+' type='button' class='qtyButton diceButton d4LowerButton'>+</button>
+            <!-- <span id='d4Quantity'>d4</span> -->
+            <!-- <span>d4</span> -->
+            <button id='d4Mod-' class='qtyButton modButton d4UpperButton'>-</button>
+            <button id='d4Mod+' class='qtyButton modButton d4LowerButton'>+</button>
+            <!-- <span id='d4Mod'>d4 Modifier</span> -->
+            <button id='d4Roll' type='button' class='rollButton'>Roll d4</button>
+            <span id='d4Total' class='total'> </span>
+            <span id='d4CritHit' class="critHitResult">0</span>
+            <span id='d4CritMiss' class="critMissResult">0</span>
+            
+            <button id='d6-' class='qtyButton diceButton d6UpperButton'>-</button>
+            <button id='d6+' type='button' class='qtyButton diceButton d6LowerButton'>+</button>
+            <!-- <span id='d6Quantity'>d6</span> -->
+            <!-- <span>d6</span> -->
+            <button id='d6Mod-' class='qtyButton modButton d6UpperButton'>-</button>
+            <button id='d6Mod+' class='qtyButton modButton d6LowerButton'>+</button>
+            <!-- <span id='d6Mod'>d6 Modifier</span> -->
+            <button id='d6Roll' type='button' class='rollButton'>Roll d6</button>
+            <span id='d6Total' class='total'> </span>
+            <span id='d6CritHit' class="critHitResult">0</span>
+            <span id='d6CritMiss' class="critMissResult">0</span>
+            
+            <button id='d8-' class='qtyButton diceButton d8UpperButton'>-</button>
+            <button id='d8+' type='button' class='qtyButton diceButton d8LowerButton'>+</button>
+            <!-- <span id='d8Quantity'>d8</span> -->
+            <!-- <span>d8</span> -->
+            <button id='d8Mod-' class='qtyButton modButton d8UpperButton'>-</button>
+            <button id='d8Mod+' class='qtyButton modButton d8LowerButton'>+</button>
+            <!-- <span id='d8Mod'>d8 Modifier</span> -->
+            <button id='d8Roll' type='button' class='rollButton'>Roll d8</button>
+            <span id='d8Total' class='total'> </span>
+            <span id='d8CritHit' class="critHitResult">0</span>
+            <span id='d8CritMiss' class="critMissResult">0</span>
+            
+            <button id='d10-' class='qtyButton diceButton d10UpperButton'>-</button>
+            <button id='d10+' type='button' class='qtyButton diceButton d10LowerButton'>+</button>
+            <!-- <span id='d10Quantity'>d10</span> -->
+            <!-- <span>d10</span> -->
+            <button id='d10Mod-' class='qtyButton modButton d10UpperButton'>-</button>
+            <button id='d10Mod+' class='qtyButton modButton d10LowerButton'>+</button>
+            <!-- <span id='d10Mod'>d10 Modifier</span> -->
+            <button id='d10Roll' type='button' class='rollButton'>Roll d10</button>
+            <span id='d10Total' class='total'> </span>
+            <span id='d10CritHit' class="critHitResult">0</span>
+            <span id='d10CritMiss' class="critMissResult">0</span>
+            
+            <button id='d12-' class='qtyButton diceButton d12UpperButton'>-</button>
+            <button id='d12+' type='button' class='qtyButton diceButton d12LowerButton'>+</button>
+            <!-- <span id='d12Quantity'>d12</span> -->
+            <!-- <span>d12</span> -->
+            <button id='d12Mod-' class='qtyButton modButton d12UpperButton'>-</button>
+            <button id='d12Mod+' class='qtyButton modButton d12LowerButton'>+</button>
+            <!-- <span id='d12Mod'>d12 Modifier</span> -->
+            <button id='d12Roll' type='button' class='rollButton'>Roll d12</button>
+            <span id='d12Total' class='total'> </span>
+            <span id='d12CritHit' class="critHitResult">0</span>
+            <span id='d12CritMiss' class="critMissResult">0</span>
+            
+            <button id='d20-' class='qtyButton diceButton d20UpperButton'>-</button>
+            <button id='d20+' type='button' class='qtyButton diceButton d20LowerButton'>+</button>
+            <!-- <span id='d20Quantity'>d20</span> -->
+            <!-- <span>d20</span> -->
+            <button id='d20Mod-' class='qtyButton modButton d20UpperButton'>-</button>
+            <button id='d20Mod+' class='qtyButton modButton d20LowerButton'>+</button>
+            <!-- <span id='d20Mod'>d20 Modifier</span> -->
+            <button id='d20Roll' type='button' class='rollButton'>Roll d20</button>
+            <span id='d20Total' class='total'> </span>
+            <span id='d20CritHit' class="critHitResult">0</span>
+            <span id='d20CritMiss' class="critMissResult">0</span>
+            
+            
+            
+            <!-- button to roll all dice and add their totals -->
+            <!-- <br> -->
+            <button id='rollAll'>Roll All</button>
+            <div id='allResults' class='total'> </div>
+
+        </article>
+
+
+        
+        <script src="diceRollingAppScript.js"></script>
+    </body>
+    </html>
