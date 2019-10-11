@@ -56,7 +56,7 @@ var d10 = {
 var d12 = {
     name: 'd12',
     sides:12, 
-    qty: 9, 
+    qty: 0, 
     total:0,
     rolls: [],
     critHits: 0, 
@@ -66,7 +66,7 @@ var d12 = {
 var d20 = {
     name: 'd20',
     sides:20, 
-    qty: 10, 
+    qty: 0, 
     total:0,
     rolls: [],
     critHits: 0, 
