@@ -47,13 +47,16 @@
         }
         #rollTitle{
             grid-column: 5/7;
-            font-size:1.5rem;
+            font-size:2rem;
+            line-height: 1.5;
         }
         #totalTitle{
             grid-column: 7/8;
+            line-height: 3.5;
         }
         #criticalsTitle{
             grid-column: 8/10;
+            line-height: 1.5;
         }
         button {
             border: 1px solid black;
@@ -84,15 +87,19 @@
             width: 100%;    
         }
 
-        .total, .critResult {
+        .total, .critMissResult, .critHitResult {
             font-weight: bold;
             background: black; 
             color: rgb(173, 216, 230);
-            word-spacing: 10px;
             font-size: 2rem;
             text-align: center;
             border: 1px solid lightblue;
             width: 100px;    
+            line-height: 1.7;
+        }
+
+        .critMissResult, .critHitResult{
+            width: 100%; 
         }
 
         .results {
@@ -100,9 +107,8 @@
             color: red; 
         }
 
-        .critResult, .total {
-            line-height: 1.7;
-        }
+        
+        
         .critResult{
             width: 70px;
         }
