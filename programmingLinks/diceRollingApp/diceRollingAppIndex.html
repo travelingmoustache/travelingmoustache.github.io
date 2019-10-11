@@ -132,7 +132,7 @@
 
         
             #buttonsArticle{
-                grid-template-columns: 30px 30px 60px 60px 60px 40px 40px;
+                grid-template-columns: 30px 30px auto;
                 grid-template-rows: repeat(17, 40px); 
                 width: 99%;
                 margin: auto;
@@ -157,6 +157,7 @@
                 grid-column: 3/5;
                 font-size: 2rem;
                 line-height: 2.3;
+                max-width: none;
             }
             #totalTitle{
                 grid-column: 5/6;
@@ -264,6 +265,13 @@
             #rollAll, #allResults {
                 grid-row: 17/18;
                 height: 80px;
+            }
+
+            #rollAll {
+                grid-column: 1/5;
+            }
+            #allResults {
+                grid-column: 5/8;
             }
 
 }
