@@ -1,3 +1,5 @@
+p5.disableFriendlyErrors = true;
+
 var x = 10;
 var y = 100;
 var newX = 0;
@@ -13,7 +15,7 @@ var count = 0;
 var basement = 300;
 var ceiling = 300;
 
-var gameMode = 1;
+var gameMode = 2;
 var players = 1;
 var betDisplay = 0;
 var chooseCrab = false;
@@ -117,7 +119,7 @@ function draw() {
       textSize(windowWidth / 20);
       text(names[betDisplay]+", Your Bet", windowWidth / 3, windowHeight / 4);
 
-      fill(200,50,100);
+      fill(255,255,255);
       textSize(windowWidth / 30);
       text("<< "+bets[betDisplay]+" >>", windowWidth * .42, windowHeight / 2);
 
@@ -300,10 +302,10 @@ function draw() {
       reward = true;
       if (deadTimer > 130){
         if (crab1.hp < 0){
-          crab1 = new Crab(screenW / 3, 1, Math.random() * 2 + .9, Math.floor(Math.random() * 10 + 5));
+          crab1 = new Crab(screenW / 3, 1, Math.random() * 2 + .9, Math.floor(Math.random() * 10 + 3));
         }
         if (crab2.hp < 0){
-          crab2 = new Crab(screenW *.6, -1, Math.random() * -2 - .9, Math.floor(Math.random() * 10 + 5));
+          crab2 = new Crab(screenW *.6, -1, Math.random() * -2 - .9, Math.floor(Math.random() * 10 + 3));
         }
         resetCrabs();
       }
@@ -614,8 +616,8 @@ class Crab {
   }
 }
 
-var crab1 = new Crab(screenW / 3, 1, Math.random() * 2 + 2.5, Math.floor(Math.random() * 10 + 5));
-var crab2 = new Crab(screenW * .6, -1, Math.random() * -2 - 2.5, Math.floor(Math.random() * 10 + 5));
+var crab1 = new Crab(screenW * .2, 1, Math.random() * 2 + 2.5, Math.floor(Math.random() * 10 + 3));
+var crab2 = new Crab(screenW * .7, -1, Math.random() * -2 - 2.5, Math.floor(Math.random() * 10 + 3));
 
 
 function mousePressed() {
@@ -782,7 +784,7 @@ function resetCrabs(){
   bets = [50,50,50,50]
   reward = false;
   crab1.y = ceiling - 50;
-  crab1.x = screenW * .3;
+  crab1.x = screenW * .2;
   crab2.y = ceiling - 50;
-  crab2.x = screenW * .58;
+  crab2.x = screenW * .7;
 }
